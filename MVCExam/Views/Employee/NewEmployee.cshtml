@@ -1,0 +1,80 @@
+﻿@model vmEmployee;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewEmployee</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+            <div class="row">
+                <div class="col-lg-1">
+                    <label class="control-label" asp-for="employee.Name"></label>
+                </div>
+                <div class="col-lg-3">
+                    <input class="form-control" type="text" asp-for="employee.Name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label class="control-label" asp-for="employee.Phone"></label>
+                </div>
+                <div class="col-lg-3">
+                    <input class="form-control" type="text" asp-for="employee.Phone" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label class="control-label" asp-for="employee.Email"></label>
+                </div>
+                <div class="col-lg-3">
+                    <input class="form-control" type="text" asp-for="employee.Email" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label class="control-label" asp-for="employee.CountryId"></label>
+                </div>
+                <div class="col-lg-3">
+                    <select asp-items='new SelectList(Model.countries,"ID","Name")'></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label class="control-label" asp-for="employee.DepartmentId"></label>
+                </div>
+                <div class="col-lg-3">
+                    <select asp-items='new SelectList(Model.departments,"ID","Name")'></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label class="control-label" asp-for="employee.BirthDate"></label>
+                </div>
+                <div class="col-lg-3">
+                    <input class="form-control" type="text" asp-for="employee.BirthDate" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <label class="control-label" asp-for="employee.Image"></label>
+                </div>
+                <div class="col-lg-3">
+                    <input class="form-control" type="file" value="UPLOAD " asp-for="employee.Image" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

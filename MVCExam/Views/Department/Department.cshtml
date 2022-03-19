@@ -1,0 +1,58 @@
+﻿@model vmDepartment
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Department</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="table table-striped">
+                    <thead>
+                        <tr style=" color:mediumpurple">
+                            <th scope="col">Department Name</th>
+                            <th scope="col">Minimum Salary</th>
+                            <th scope="col">Maximum Salary</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Department item in Model.department)
+                        {
+                            <tr>
+
+                                <td scope="col">@item.Name</td>
+                                <td scope="col">@item.Minsalary</td>
+                                <td scope="col">@item.MaxSalary</td>
+                                <td scope="col">
+                                    <a asp-action="Details" asp-route-ID="@item.ID">Details</a>
+                                </td>
+                                
+                            </tr>
+                        }
+
+                        </tbody>
+                </table>
+            </form>
+         </div>
+
+        <div class="row">
+            <form method="post">
+                <div class="row">
+                    <input type="submit" class="btn btn-primary" value="New Employee" asp-action="NewEmployee" asp-controller="Employee"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
